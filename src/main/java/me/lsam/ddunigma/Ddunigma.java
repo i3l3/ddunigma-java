@@ -1,6 +1,5 @@
 package me.lsam.ddunigma;
 
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public abstract class Ddunigma {
@@ -9,12 +8,12 @@ public abstract class Ddunigma {
     // 58 + 45
     // 103
 
-    public static String encode(String text) {
+    public static String encode(byte[] text) {
         try {
             StringBuilder encodedBinaries = new StringBuilder();
             StringBuilder result = new StringBuilder();
 
-            for (byte ch : text.getBytes(StandardCharsets.UTF_8)) {
+            for (byte ch : text) {
                 encodedBinaries.append(padLeft(Integer.toBinaryString(ch & 0xFF), 8, '0'));
             }
 
@@ -36,7 +35,7 @@ public abstract class Ddunigma {
         }
     }
 
-    public static String decode(String text) {
+    public static byte[] decode(String text) {
         try {
             StringBuilder decodedBinaries = new StringBuilder();
             ArrayList<Byte> decodedBytes = new ArrayList<>();
@@ -67,9 +66,9 @@ public abstract class Ddunigma {
                 byteArray[i] = decodedBytes.get(i);
             }
 
-            return new String(byteArray, StandardCharsets.UTF_8);
+            return byteArray;
         } catch (Exception e) {
-            return null;
+            return new byte[] {};
         }
     }
 

@@ -18,13 +18,16 @@ dependencies {
 ```
 
 ## 사용법
+
 ```java
 import me.lsam.ddunigma.Ddunigma;
 
+import java.nio.charset.StandardCharsets;
+
 public class Main {
     public static public static void main(String[] args) {
-        System.out.println(Ddunigma.encode("안녕하세요")); // 인코드
-        System.out.println(Ddunigma.decode(".우땨땨이?땨뜌.이.뜌이?이!.우우땨이?우뜌.우땨뜌이이.뜌.우땨땨!이이야")); // 디코드
+        System.out.println(Ddunigma.encode("안녕하세요".getBytes())); // 인코드
+        System.out.println(new String(Ddunigma.decode(".우땨땨이?땨뜌.이.뜌이?이!.우우땨이?우뜌.우땨뜌이이.뜌.우땨땨!이이야"), StandardCharsets.UTF_8)); // 디코드
     }
 }
 ```
