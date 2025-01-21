@@ -4,6 +4,9 @@
 자바 고수가 될거야!
 
 ## 설치
+> [!NOTE]  
+> 아직 Maven Central Repository에 라이브러리가 게시되지 않았습니다.
+
 ```kts
 repositories {
     mavenCentral()
